@@ -106,9 +106,11 @@ public class ElasticApi {
         return queries;
     }
 
-    public SearchResponse<Book> searchBooks(String title, String author, String genre, String numberOfAwards) throws IOException {
+    public SearchResponse<Book> searchBooks(String title, String author, String genre, String numberOfAwards, Integer page, Integer size) throws IOException {
         return elasticClient.search(s -> s
                 .index(INDEX_NAME)
+                .from(page * size)
+                .size(size)
                 .query(q -> q
                         .bool(b -> b
                                 .must(getQueryList(title, author, genre, numberOfAwards))

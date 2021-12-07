@@ -9,7 +9,7 @@ GET     /tutorial                   controllers.BookController.tutorial
 GET     /books/filters/:type        controllers.BookController.getFilters(type: String, title: String?=null, author: String?=null, genre: String?=null, numberOfAwards: String?=null)
 GET     /books/popular              controllers.BookController.popular(page: Int?=0, size: Int?=12)
 GET     /books/latest               controllers.BookController.latest(page: Int?=0, size: Int?=12)
-GET     /books/search               controllers.BookController.search(title: String?=null, author: String?=null, genre: String?=null, numberOfAwards: String?=null)
+GET     /books/search               controllers.BookController.search(title: String?=null, author: String?=null, genre: String?=null, numberOfAwards: String?=null, page: Int?=0, size: Int?=12)
 GET     /books/:id                  controllers.BookController.getBookById(id: String)
 GET     /books                      controllers.BookController.books(sortBy: String?=null, order: String?=null)
 

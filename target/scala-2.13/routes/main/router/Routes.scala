@@ -49,7 +49,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books/filters/""" + "$" + """type<[^/]+>""", """controllers.BookController.getFilters(type:String, title:String ?= null, author:String ?= null, genre:String ?= null, numberOfAwards:String ?= null)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books/popular""", """controllers.BookController.popular(page:Int ?= 0, size:Int ?= 12)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books/latest""", """controllers.BookController.latest(page:Int ?= 0, size:Int ?= 12)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books/search""", """controllers.BookController.search(title:String ?= null, author:String ?= null, genre:String ?= null, numberOfAwards:String ?= null)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books/search""", """controllers.BookController.search(title:String ?= null, author:String ?= null, genre:String ?= null, numberOfAwards:String ?= null, page:Int ?= 0, size:Int ?= 12)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books/""" + "$" + """id<[^/]+>""", """controllers.BookController.getBookById(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books""", """controllers.BookController.books(sortBy:String ?= null, order:String ?= null)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """charts/price""", """controllers.ChartController.byPrice()"""),
@@ -176,12 +176,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("books/search")))
   )
   private[this] lazy val controllers_BookController_search6_invoker = createInvoker(
-    BookController_1.search(fakeValue[String], fakeValue[String], fakeValue[String], fakeValue[String]),
+    BookController_1.search(fakeValue[String], fakeValue[String], fakeValue[String], fakeValue[String], fakeValue[Int], fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.BookController",
       "search",
-      Seq(classOf[String], classOf[String], classOf[String], classOf[String]),
+      Seq(classOf[String], classOf[String], classOf[String], classOf[String], classOf[Int], classOf[Int]),
       "GET",
       this.prefix + """books/search""",
       """""",
@@ -338,8 +338,8 @@ class Routes(
   
     // @LINE:12
     case controllers_BookController_search6_route(params@_) =>
-      call(params.fromQuery[String]("title", Some(null)), params.fromQuery[String]("author", Some(null)), params.fromQuery[String]("genre", Some(null)), params.fromQuery[String]("numberOfAwards", Some(null))) { (title, author, genre, numberOfAwards) =>
-        controllers_BookController_search6_invoker.call(BookController_1.search(title, author, genre, numberOfAwards))
+      call(params.fromQuery[String]("title", Some(null)), params.fromQuery[String]("author", Some(null)), params.fromQuery[String]("genre", Some(null)), params.fromQuery[String]("numberOfAwards", Some(null)), params.fromQuery[Int]("page", Some(0)), params.fromQuery[Int]("size", Some(12))) { (title, author, genre, numberOfAwards, page, size) =>
+        controllers_BookController_search6_invoker.call(BookController_1.search(title, author, genre, numberOfAwards, page, size))
       }
   
     // @LINE:13

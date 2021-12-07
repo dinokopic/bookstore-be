@@ -18,16 +18,6 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
-    def search: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.BookController.search",
-      """
-        function(title0,author1,genre2,numberOfAwards3) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "books/search" + _qS([(title0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("title", title0)), (author1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("author", author1)), (genre2 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("genre", genre2)), (numberOfAwards3 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("numberOfAwards", numberOfAwards3))])})
-        }
-      """
-    )
-  
     // @LINE:8
     def tutorial: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BookController.tutorial",
@@ -54,6 +44,16 @@ package controllers.javascript {
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "books/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def search: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.BookController.search",
+      """
+        function(title0,author1,genre2,numberOfAwards3,page4,size5) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "books/search" + _qS([(title0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("title", title0)), (author1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("author", author1)), (genre2 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("genre", genre2)), (numberOfAwards3 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("numberOfAwards", numberOfAwards3)), (page4 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("page", page4)), (size5 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("size", size5))])})
         }
       """
     )

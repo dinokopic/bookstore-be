@@ -1,4 +1,4 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/logback.xml,/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/target/scala-2.13/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/application.conf,/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/target/scala-2.13/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes,/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/target/scala-2.13/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/admin/Desktop/bookstore-be/conf/logback.xml,/Users/admin/Desktop/bookstore-be/target/scala-2.13/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/admin/Desktop/bookstore-be/conf/application.conf,/Users/admin/Desktop/bookstore-be/target/scala-2.13/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/admin/Desktop/bookstore-be/conf/routes,/Users/admin/Desktop/bookstore-be/target/scala-2.13/classes/routes)[0m

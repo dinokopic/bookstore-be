@@ -43,12 +43,18 @@ public class ElasticService {
         return books;
     }
 
+    private ResponseObject extractResponseObject(SearchResponse<Book> response) {
+        List<Book> books = extractBooksFromResponse(response);
+        Long numberOfHits = response.hits().total().value();
+        return new ResponseObject(books, numberOfHits);
+    }
+
     public List<Book> getBooks(String sortBy, String order) throws IOException {
         return extractBooksFromResponse(api.getBooks(sortBy, order, null, null));
     }
 
-    public List<Book> searchBooks(String title, String author, String genre, String numberOfAwards) throws IOException {
-        return extractBooksFromResponse(api.searchBooks(title, author, genre, numberOfAwards));
+    public ResponseObject searchBooks(String title, String author, String genre, String numberOfAwards, Integer page, Integer size) throws IOException {
+        return extractResponseObject(api.searchBooks(title, author, genre, numberOfAwards, page, size));
     }
 
     private JsonArray extractFilters(SearchResponse<Book> response, ElasticAggregationKey aggregationKey) {
@@ -57,17 +63,11 @@ public class ElasticService {
     }
 
     public ResponseObject getPopularBooks(Integer page, Integer size) throws IOException {
-        var response = api.getBooks("sold", null, page, size);
-        List<Book> books = extractBooksFromResponse(response);
-        Long numberOfHits = response.hits().total().value();
-        return new ResponseObject(books, numberOfHits);
+        return extractResponseObject(api.getBooks("sold", null, page, size));
     }
 
     public ResponseObject getLatestBooks(Integer page, Integer size) throws IOException {
-        var response = api.getBooks("year.keyword", null, page, size);
-        List<Book> books = extractBooksFromResponse(response);
-        Long numberOfHits = response.hits().total().value();
-        return new ResponseObject(books, numberOfHits);
+        return extractResponseObject(api.getBooks("year.keyword", null, page, size));
     }
 
     public JsonArray updateFilter(String type, String title, String author, String genre, String numberOfAwards) throws IOException {

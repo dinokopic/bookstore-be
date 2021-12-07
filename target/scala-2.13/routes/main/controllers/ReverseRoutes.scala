@@ -17,12 +17,6 @@ package controllers {
     }
 
   
-    // @LINE:12
-    def search(title:String = null, author:String = null, genre:String = null, numberOfAwards:String = null): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "books/search" + play.core.routing.queryString(List(if(title == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("title", title)), if(author == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("author", author)), if(genre == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("genre", genre)), if(numberOfAwards == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("numberOfAwards", numberOfAwards)))))
-    }
-  
     // @LINE:8
     def tutorial: Call = {
       
@@ -39,6 +33,12 @@ package controllers {
     def getBookById(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "books/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:12
+    def search(title:String = null, author:String = null, genre:String = null, numberOfAwards:String = null, page:Int = 0, size:Int = 12): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "books/search" + play.core.routing.queryString(List(if(title == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("title", title)), if(author == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("author", author)), if(genre == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("genre", genre)), if(numberOfAwards == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("numberOfAwards", numberOfAwards)), if(page == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("page", page)), if(size == 12) None else Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("size", size)))))
     }
   
     // @LINE:11

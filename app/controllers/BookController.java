@@ -72,9 +72,9 @@ public class BookController extends Controller {
         }
     }
 
-    public Result search(String title, String author, String genre, String numberOfAwards) {
+    public Result search(String title, String author, String genre, String numberOfAwards, Integer page, Integer size) {
         try {
-            List<Book> books = elasticService.searchBooks(title, author, genre, numberOfAwards);
+            ResponseObject books = elasticService.searchBooks(title, author, genre, numberOfAwards, page, size);
             return ok(Json.toJson(books));
         } catch (IOException e) {
             e.printStackTrace();
