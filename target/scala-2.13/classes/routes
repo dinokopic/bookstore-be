@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.BookController.index
+GET     /explore                    controllers.BookController.explore
+GET     /tutorial                   controllers.BookController.tutorial
+GET     /books/filters/:type        controllers.BookController.getFilters(type: String, title: String?=null, author: String?=null, genre: String?=null, numberOfAwards: String?=null)
+GET     /books/popular              controllers.BookController.popular(page: Int?=0, size: Int?=12)
+GET     /books/latest               controllers.BookController.latest(page: Int?=0, size: Int?=12)
+GET     /books/search               controllers.BookController.search(title: String?=null, author: String?=null, genre: String?=null, numberOfAwards: String?=null)
+GET     /books/:id                  controllers.BookController.getBookById(id: String)
+GET     /books                      controllers.BookController.books(sortBy: String?=null, order: String?=null)
+
+GET     /charts/price               controllers.ChartController.byPrice()
+GET     /charts/bestSellingGenres   controllers.ChartController.bestSellingGenres()
+GET     /charts/profit              controllers.ChartController.byProfit()
+
+#GET     /books/filters/:type        controllers.BookController.getFilters(type: String, title: String?=null, author: String?=null, genre: String?=null, numberOfAwards: String=?null)
+#GET     /books/genres               controllers.BookController.genres(title: String?=null, author: String?=null, minimumAwards: String?=null)
+#GET     /books/authors              controllers.BookController.authors(title: String?=null, genre: String?=null, numberOfAwards: String?=null)
+#GET     /books/awardsCount          controllers.BookController.awardsCount(title: String?=null, genre: String?=null, author: String?=null)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+

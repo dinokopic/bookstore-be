@@ -1,0 +1,17 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:10:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/popular              controllers.BookController.popular(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:10:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/popular              controllers.BookController.popular(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:11:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/latest               controllers.BookController.latest(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:11:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/latest               controllers.BookController.latest(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:10:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/popular              controllers.BookController.popular(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:10:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/popular              controllers.BookController.popular(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:11:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/latest               controllers.BookController.latest(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/admin/Downloads/play-samples-play-java-hello-world-tutorial/conf/routes:11:1: an expression of type Null is ineligible for implicit conversion[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books/latest               controllers.BookController.latest(from: Long?=null, size: Long?=null)[0m
+[0m[[0m[31merror[0m] [0m[0m8 errors found[0m
