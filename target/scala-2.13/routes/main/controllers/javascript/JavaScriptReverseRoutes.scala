@@ -128,6 +128,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:19
+    def bestSellingBooks: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ChartController.bestSellingBooks",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "charts/bestSellingBooks"})
+        }
+      """
+    )
+  
     // @LINE:18
     def byProfit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ChartController.byProfit",
@@ -150,7 +160,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:27
+  // @LINE:28
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -158,7 +168,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:27
+    // @LINE:28
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

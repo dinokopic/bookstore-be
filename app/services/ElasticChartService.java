@@ -41,4 +41,17 @@ public class ElasticChartService {
         }
         return arrayBuilder.build();
     }
+
+    public JsonArray bestSellingBooks() throws IOException {
+        var response = api.getBooks("sold", null, 0, 10).hits().hits();
+        var objectBuilder = Json.createObjectBuilder();
+        var arrayBuilder = Json.createArrayBuilder();
+        for (var hit: response) {
+            var book = hit.source();
+            objectBuilder.add("title", book.getTitle());
+            objectBuilder.add("sold", book.getSold());
+            arrayBuilder.add(objectBuilder.build());
+        }
+        return arrayBuilder.build();
+    }
 }

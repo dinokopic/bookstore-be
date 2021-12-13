@@ -16,6 +16,7 @@ GET     /books                      controllers.BookController.books(sortBy: Str
 GET     /charts/price               controllers.ChartController.byPrice()
 GET     /charts/bestSellingGenres   controllers.ChartController.bestSellingGenres()
 GET     /charts/profit              controllers.ChartController.byProfit()
+GET     /charts/bestSellingBooks    controllers.ChartController.bestSellingBooks()
 
 #GET     /books/filters/:type        controllers.BookController.getFilters(type: String, title: String?=null, author: String?=null, genre: String?=null, numberOfAwards: String=?null)
 #GET     /books/genres               controllers.BookController.genres(title: String?=null, author: String?=null, minimumAwards: String?=null)

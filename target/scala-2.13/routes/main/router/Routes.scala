@@ -17,7 +17,7 @@ class Routes(
   BookController_1: controllers.BookController,
   // @LINE:16
   ChartController_0: controllers.ChartController,
-  // @LINE:27
+  // @LINE:28
   Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -28,7 +28,7 @@ class Routes(
     BookController_1: controllers.BookController,
     // @LINE:16
     ChartController_0: controllers.ChartController,
-    // @LINE:27
+    // @LINE:28
     Assets_2: controllers.Assets
   ) = this(errorHandler, BookController_1, ChartController_0, Assets_2, "/")
 
@@ -55,6 +55,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """charts/price""", """controllers.ChartController.byPrice()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """charts/bestSellingGenres""", """controllers.ChartController.bestSellingGenres()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """charts/profit""", """controllers.ChartController.byProfit()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """charts/bestSellingBooks""", """controllers.ChartController.bestSellingBooks()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -279,11 +280,29 @@ class Routes(
     )
   )
 
-  // @LINE:27
-  private[this] lazy val controllers_Assets_versioned12_route = Route("GET",
+  // @LINE:19
+  private[this] lazy val controllers_ChartController_bestSellingBooks12_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("charts/bestSellingBooks")))
+  )
+  private[this] lazy val controllers_ChartController_bestSellingBooks12_invoker = createInvoker(
+    ChartController_0.bestSellingBooks(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ChartController",
+      "bestSellingBooks",
+      Nil,
+      "GET",
+      this.prefix + """charts/bestSellingBooks""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:28
+  private[this] lazy val controllers_Assets_versioned13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned12_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned13_invoker = createInvoker(
     Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -372,10 +391,16 @@ class Routes(
         controllers_ChartController_byProfit11_invoker.call(ChartController_0.byProfit())
       }
   
-    // @LINE:27
-    case controllers_Assets_versioned12_route(params@_) =>
+    // @LINE:19
+    case controllers_ChartController_bestSellingBooks12_route(params@_) =>
+      call { 
+        controllers_ChartController_bestSellingBooks12_invoker.call(ChartController_0.bestSellingBooks())
+      }
+  
+    // @LINE:28
+    case controllers_Assets_versioned13_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned12_invoker.call(Assets_2.versioned(path, file))
+        controllers_Assets_versioned13_invoker.call(Assets_2.versioned(path, file))
       }
   }
 }

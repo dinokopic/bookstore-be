@@ -37,4 +37,12 @@ public class ChartController extends Controller {
     public Result byProfit() throws IOException {
         return ok(Json.parse(chartService.profit().toString()));
     }
+
+    public Result bestSellingBooks() {
+        try {
+            return ok(Json.parse(chartService.bestSellingBooks().toString()));
+        } catch (IOException e) {
+            return badRequest("ERROR 400 - Bad Request");
+        }
+    }
 }
